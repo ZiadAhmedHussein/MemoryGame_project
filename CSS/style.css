@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Tahoma, Arial;
+}
+
+
+html {
+    position: relative;
+}
+
+html .start-game {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.298);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5; 
+    transition: .5s;
+}
+
+html .start-button {
+    background-color: rgba(255, 0, 204, 0.961);
+    width: 220px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    border-radius: 30px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 7;
+    user-select: none;
+}
+
+html .lose-case {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 0, 0, 0.658);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+html .game-over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: red;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 30px;
+    user-select: none;
+}
+
+html .lose-case .game-over .try-again,
+.play-again {
+    margin-top: 20px;
+    background-color: black;
+    width: 40%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.win-case {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 128, 0, 0.325);
+    width: 100%;
+    height: 100%;
+}
+
+.congratulation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: green;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 30px;
+    user-select: none;
+}
+
+
+.container {
+    height: fit-content;
+    width: 900px;
+    margin: 30px auto;
+}
+
+.container .head {
+    background-color: #eee;
+    height: 70px;
+    width: 100%;
+    border: 2px solid blue;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.container .head .username,
+.container .head .result {
+    font-size: 20px;
+}
+
+.container .imgs {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container .imgs.stop-click {
+    pointer-events: none;
+}
+
+.container .imgs .block {
+    border: 5px solid blue;
+    width: 170px;
+    height: 170px;
+    cursor: pointer;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.container .imgs .block .front {
+    background-color: gray;
+    line-height: 160px;    
+}
+
+.container .imgs .block .front::after {
+    content: "?";
+    font-size: 150px;
+    font-weight: bold;
+}
+
+
+.container .imgs .block .back {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+.container .imgs .block .back img {
+    width: 160px;
+    height: 160px;
+}
+
+.container .imgs .block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+.container .imgs .block.rotated,
+.container .imgs .block.done {
+    transform: rotatey(180deg);
+    pointer-events: none;
+}
+
+
